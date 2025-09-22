@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use function BrainGames\Cli\welcomeUser;
+use function BrainGames\brainEvenLogic\showDescriptionGame;
+use function BrainGames\brainEvenLogic\brainEvenGame;
+
+welcomeUser();
+showDescriptionGame();
+brainEvenGame();
