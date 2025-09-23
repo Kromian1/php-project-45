@@ -35,15 +35,14 @@ function checkAnswer(string $answer, string $correctAnswer): string
 {
     return $answer === $correctAnswer ? 'yes' : 'no';
 }
-function brainEvenGame()
+function brainEvenGame($name)
 {
-    $countCorrectAnswers = 0;
-    for ($i = 0; $i < 2; $i++) {
-        $name = welcomeUser();
-        generateAndShowRandom();
+    showDescriptionGame();
+    for ($i = 0; $i < 3; $i++) {
+        $random = generateAndShowRandom();
         $userAnswer = getAnswer();
         $correctAnswer = getCorrectAnswer($random);
-        $result = checkAnswer($userAnswer, $correctAnswer);
+        $result = checkAnswer($userAnswer, $correctAnswer, $name);
         if ($result === 'no') {
             line("'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, %s!", $name);
             break;
