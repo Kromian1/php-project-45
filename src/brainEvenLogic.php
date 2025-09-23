@@ -31,7 +31,7 @@ function getCorrectAnswer(int $random): string
 {
     return $random % 2 == 0 ? 'yes' : 'no';
 }
-function checkAnswer(string $answer, string $correctAnswer): string
+function checkAnswer(string $answer, string $correctAnswer, $name): string
 {
     return $answer === $correctAnswer ? 'yes' : 'no';
 }
