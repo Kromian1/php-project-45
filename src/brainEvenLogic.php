@@ -5,7 +5,7 @@ namespace BrainGames\brainEvenLogic;
 use function cli\line;
 use function cli\prompt;
 
-function welcomeUser()
+function welcomeUser(): string
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
@@ -22,33 +22,45 @@ function generateAndShowRandom(): int
     line("Question: %d", $random);
     return $random;
 }
-function getAnswer(): string
+function getUserAnswer(): string
 {
-    $answer = prompt('Your answer:');
-    return $answer;
+    $userAnswer = prompt('Your answer:');
+    return $userAnswer;
 }
 function getCorrectAnswer(int $random): string
 {
     return $random % 2 == 0 ? 'yes' : 'no';
 }
-function checkAnswer(string $answer, string $correctAnswer, $name): string
+function checkAnswer(string $userAnswer, string $correctAnswer): string
 {
-    return $answer === $correctAnswer ? 'yes' : 'no';
+    return $userAnswer === $correctAnswer ? 'yes' : 'no';
 }
 function brainEvenGame($name)
 {
     showDescriptionGame();
+    $countCorrectAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
         $random = generateAndShowRandom();
-        $userAnswer = getAnswer();
+        $userAnswer = getUserAnswer();
         $correctAnswer = getCorrectAnswer($random);
-        $result = checkAnswer($userAnswer, $correctAnswer, $name);
+        $result = checkAnswer($userAnswer, $correctAnswer);
         if ($result === 'no') {
-            line("'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, %s!", $name);
-            break;
+            if ($userAnswer === 'yes') {
+                line("'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, %s!", $name);
+                break;
+            } elseif ($userAnswer === 'no') {
+                line("'no' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, %s!", $name);
+                break;
+            } else {
+                line("your answer is wrong ;(.\nLet's try again, %s!", $name);
+                break;
+            }
         } else {
             line('Correct!');
+            $countCorrectAnswer++;
         }
     }
-    return line("Congratulations, %s!", $name);
+    if ($countCorrectAnswer === 3) {
+        return line("Congratulations, %s!", $name);
+    }
 }
