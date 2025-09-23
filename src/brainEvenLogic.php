@@ -24,7 +24,7 @@ function generateAndShowRandom(): int
 }
 function getUserAnswer(): string
 {
-    $userAnswer = prompt('Your answer:');
+    $userAnswer = prompt('Your answer');
     return $userAnswer;
 }
 function getCorrectAnswer(int $random): string
@@ -35,8 +35,9 @@ function checkAnswer(string $userAnswer, string $correctAnswer): string
 {
     return $userAnswer === $correctAnswer ? 'yes' : 'no';
 }
-function brainEvenGame($name)
+function brainEvenGame()
 {
+    $name = welcomeUser();
     showDescriptionGame();
     $countCorrectAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
@@ -52,7 +53,7 @@ function brainEvenGame($name)
                 line("'no' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, %s!", $name);
                 break;
             } else {
-                line("your answer is wrong ;(.\nLet's try again, %s!", $name);
+                line("Your answer is wrong ;(. Correct answer was '%s'.\nLet's try again, %s!", $correctAnswer, $name);
                 break;
             }
         } else {
