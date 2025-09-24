@@ -12,15 +12,49 @@ function welcomeUser(): string
     line("Hello, %s!", $name);
     return $name;
 }
-function showDescriptionGame(): void
+function showDescriptionGame($game): void
 {
-    line('Answer "yes" if the number is even, otherwise answer "no".');
+    switch ($game) {
+        case 'even':
+            line('Answer "yes" if the number is even, otherwise answer "no".');
+            break;
+        case 'calc':
+            line('What is the result of the expression?');
+            break;
+    }
 }
-function generateAndShowRandom(): int
+function generateRandom(): int
 {
-    $random = mt_rand(1, 1000);
-    line("Question: %d", $random);
+    $random = mt_rand(1, 100);
     return $random;
+}
+function generateExpression(): string
+{
+    $operator = ['+', '-', '*'];
+    $randomExpression = $operator[array_rand($operator)];
+    return $randomExpression;
+}
+function showQuestion(string $game, int $random): void
+{
+    switch ($game) {
+        case 'even':
+            line("Question: %d", $random);
+            break;
+        case 'calc':
+            $expression = generateExpression();
+            switch ($expression) {
+                case '+':
+                    line("Question: %d + %d", $random1 = generateRandom(), $random2 = generateRandom());
+                    break;
+                case '-':
+                    line("Question: %d - %d", $random1 = generateRandom(), $random2 = generateRandom());
+                    break;
+                case '*':
+                    line("Question: %d * %d", $random1 = generateRandom(), $random2 = generateRandom());
+                    break;
+            }
+            break;
+    }
 }
 function getUserAnswer(): string
 {
@@ -31,40 +65,37 @@ function isEven(int $random): string
 {
     return $random % 2 == 0 ? 'yes' : 'no';
 }
-function checkAnswer(string $userAnswer, string $correctAnswer): string
-{
-    return $userAnswer === $correctAnswer ? 'yes' : 'no';
-}
-function compareAnswers($name)
+//function 
+function compareAnswers($game, $name): int
 {
     $countCorrectAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
-        $random = generateAndShowRandom();
+        switch ($game) {
+            case 'even':
+                $random = generateRandom();
+                showQuestion($game);
+                $correctAnswer = isEven($random);
+                break;
+        }
         $userAnswer = getUserAnswer();
-        $correctAnswer = isEven($random);
-        $result = checkAnswer($userAnswer, $correctAnswer);
-        if ($result === 'no') {
-            if ($userAnswer == 'yes') {
-                line("'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, %s!", $name);
-                break;
-            } elseif ($userAnswer == 'no') {
-                line("'no' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, %s!", $name);
-                break;
-            } else {
+        if ($userAnswer !== $correctAnswer) {
                 line(
-                    "'%s' answer is wrong ;(. Correct answer was '%s'.\nLet's try again, %s!",
+                    "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
                     $userAnswer,
                     $correctAnswer,
                     $name
                 );
                 break;
-            }
         } else {
             line('Correct!');
             $countCorrectAnswer++;
         }
     }
+    return $countCorrectAnswer;
+}
+function endOfGame($name, $countCorrectAnswer): void
+{
     if ($countCorrectAnswer === 3) {
-        return line("Congratulations, %s!", $name);
+        line("Congratulations, %s!", $name);
     }
 }
