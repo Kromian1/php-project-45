@@ -5,6 +5,8 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
+const UNKNOWN_GAME = 'Unknown game';
+
 function welcomeUser(): string
 {
     line('Welcome to the Brain Games!');
@@ -22,18 +24,18 @@ function showDescriptionGame($game): void
             line('What is the result of the expression?');
             break;
         default:
-            line('Unknown game');
+            line(UNKNOWN_GAME);
             break;
     }
 }
 function generateRandom(): int
 {
-    return $random = random_int(1, 100);
+    return random_int(1, 100);
 }
 function generateExpression(): string
 {
     $operator = ['+', '-', '*'];
-    return $expression = $operator[array_rand($operator)];
+    return $operator[array_rand($operator)];
 }
 function showQuestion(string $game, int $random = 0, string $expression = '', int $argument1 = 0, int $argument2 = 0): void
 {
@@ -58,23 +60,23 @@ function showQuestion(string $game, int $random = 0, string $expression = '', in
             }
             break;
         default:
-            line('Unknown game');
+            line(UNKNOWN_GAME);
             break;
     }
 }
 function getUserAnswer(): string
 {
-    return $userAnswer = prompt('Your answer');
+    return prompt('Your answer');
 }
 function calculate($expression, $argument1, $argument2): int
 {
     switch ($expression) {
         case '+':
-            return $correctAnswer = $argument1 + $argument2;
+            return $argument1 + $argument2;
         case '-':
-            return $correctAnswer = $argument1 - $argument2;
+            return $argument1 - $argument2;
         case '*':
-            return $correctAnswer = $argument1 * $argument2;
+            return $argument1 * $argument2;
         default:
             line('Unknown expression');
             break;
@@ -102,7 +104,7 @@ function compareAnswers($game, $name): int
                 $correctAnswer = calculate($expression, $argument1, $argument2);
                 break;
             default:
-                line('Unknown game');
+                line(UNKNOWN_GAME);
                 break;
         }
         $userAnswer = getUserAnswer();
