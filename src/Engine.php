@@ -28,14 +28,12 @@ function showDescriptionGame($game): void
 }
 function generateRandom(): int
 {
-    $random = random_int(1, 100);
-    return $random;
+    return $random = random_int(1, 100);
 }
 function generateExpression(): string
 {
     $operator = ['+', '-', '*'];
-    $expression = $operator[array_rand($operator)];
-    return $expression;
+    return $expression = $operator[array_rand($operator)];
 }
 function showQuestion(string $game, int $random = 0, string $expression = '', int $argument1 = 0, int $argument2 = 0): void
 {
@@ -59,25 +57,24 @@ function showQuestion(string $game, int $random = 0, string $expression = '', in
                     break;
             }
             break;
+        default:
+            line('Unknown game');
+            break;
     }
 }
 function getUserAnswer(): string
 {
-    $userAnswer = prompt('Your answer');
-    return $userAnswer;
+    return $userAnswer = prompt('Your answer');
 }
 function calculate($expression, $argument1, $argument2): int
 {
     switch ($expression) {
         case '+':
-            $correctAnswer = $argument1 + $argument2;
-            return $correctAnswer;
+            return $correctAnswer = $argument1 + $argument2;
         case '-':
-            $correctAnswer = $argument1 - $argument2;
-            return $correctAnswer;
+            return $correctAnswer = $argument1 - $argument2;
         case '*':
-            $correctAnswer = $argument1 * $argument2;
-            return $correctAnswer;
+            return $correctAnswer = $argument1 * $argument2;
         default:
             line('Unknown expression');
             break;
