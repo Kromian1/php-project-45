@@ -3,7 +3,3 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-
-use function BrainGames\Cli\welcomeUser;
-
-$name = welcomeUser();

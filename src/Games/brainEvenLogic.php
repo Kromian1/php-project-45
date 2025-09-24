@@ -5,6 +5,13 @@ namespace BrainGames\brainEvenLogic;
 use function cli\line;
 use function cli\prompt;
 
+function welcomeUser(): string
+{
+    line('Welcome to the Brain Games!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    return $name;
+}
 function showDescriptionGame()
 {
     line('Answer "yes" if the number is even, otherwise answer "no".');
@@ -28,8 +35,9 @@ function checkAnswer(string $userAnswer, string $correctAnswer): string
 {
     return $userAnswer === $correctAnswer ? 'yes' : 'no';
 }
-function brainEvenGame($name)
+function brainEvenGame()
 {
+    $name = welcomeUser();
     showDescriptionGame();
     $countCorrectAnswer = 0;
     for ($i = 0; $i < 3; $i++) {

@@ -4,8 +4,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use function BrainGames\Cli\welcomeUser;
 use function BrainGames\brainEvenLogic\brainEvenGame;
 
-$name = welcomeUser();
-brainEvenGame($name);
+brainEvenGame();
