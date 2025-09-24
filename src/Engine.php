@@ -37,7 +37,7 @@ function generateExpression(): string
     $operator = ['+', '-', '*'];
     return $operator[array_rand($operator)];
 }
-function showQuestion(string $game, int $random = 0, string $expression = '', int $argument1 = 0, int $argument2 = 0): void
+function showQuestion(string $game, int $random = 0, string $expression = '', int $argument1 = 0, int $argument2 = 0)
 {
     switch ($game) {
         case 'even':
