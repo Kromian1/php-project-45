@@ -8,12 +8,15 @@
         },
 	"files": [
 	    "src/Cli.php",
-        "src/brainEvenLogic.php"
+        "src/Engine.php",
+        "src/Games/brainEvenLogic.php",
+        "src/Games/brainCalcLogic.php"
 	]
     },
     "bin": [
 	"bin/brain-games",
-    "bin/brain-even"
+    "bin/brain-even",
+    "bin/brain-calc"
     ],
     "authors": [
         {

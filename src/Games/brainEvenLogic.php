@@ -45,7 +45,8 @@ function brainEvenGame($name)
                 line("'no' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, %s!", $name);
                 break;
             } else {
-                line("'%s' answer is wrong ;(. Correct answer was '%s'.\nLet's try again, %s!",
+                line(
+                    "'%s' answer is wrong ;(. Correct answer was '%s'.\nLet's try again, %s!",
                     $userAnswer,
                     $correctAnswer,
                     $name
