@@ -65,7 +65,6 @@ function isEven(int $random): string
 {
     return $random % 2 == 0 ? 'yes' : 'no';
 }
-//function 
 function compareAnswers($game, $name): int
 {
     $countCorrectAnswer = 0;
