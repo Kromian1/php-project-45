@@ -21,11 +21,14 @@ function showDescriptionGame($game): void
         case 'calc':
             line('What is the result of the expression?');
             break;
+        default:
+            line('Unknown game');
+            break;
     }
 }
 function generateRandom(): int
 {
-    $random = mt_rand(1, 100);
+    $random = random_int(1, 100);
     return $random;
 }
 function generateExpression(): string
@@ -51,6 +54,9 @@ function showQuestion(string $game, int $random = 0, string $expression = '', in
                 case '*':
                     line("Question: %d * %d", $argument1, $argument2);
                     break;
+                default:
+                    line('Unknown expression');
+                    break;
             }
             break;
     }
@@ -72,6 +78,9 @@ function calculate($expression, $argument1, $argument2): int
         case '*':
             $correctAnswer = $argument1 * $argument2;
             return $correctAnswer;
+        default:
+            line('Unknown expression');
+            break;
     }
 }
 function isEven(int $random): string
@@ -94,6 +103,9 @@ function compareAnswers($game, $name): int
                 $argument2 = generateRandom();
                 showQuestion($game, 0, $expression, $argument1, $argument2);
                 $correctAnswer = calculate($expression, $argument1, $argument2);
+                break;
+            default:
+                line('Unknown game');
                 break;
         }
         $userAnswer = getUserAnswer();
