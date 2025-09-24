@@ -9,8 +9,8 @@
 	"files": [
 	    "src/Cli.php",
         "src/Engine.php",
-        "src/Games/brainEvenLogic.php",
-        "src/Games/brainCalcLogic.php"
+        "src/Games/brainEven.php",
+        "src/Games/brainCalc.php"
 	]
     },
     "bin": [
