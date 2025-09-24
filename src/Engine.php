@@ -31,26 +31,25 @@ function generateRandom(): int
 function generateExpression(): string
 {
     $operator = ['+', '-', '*'];
-    $randomExpression = $operator[array_rand($operator)];
-    return $randomExpression;
+    $expression = $operator[array_rand($operator)];
+    return $expression;
 }
-function showQuestion(string $game, int $random): void
+function showQuestion(string $game, int $random = 0, string $expression = '', int $argument1 = 0, int $argument2 = 0): void
 {
     switch ($game) {
         case 'even':
             line("Question: %d", $random);
             break;
         case 'calc':
-            $expression = generateExpression();
             switch ($expression) {
                 case '+':
-                    line("Question: %d + %d", $random1 = generateRandom(), $random2 = generateRandom());
+                    line("Question: %d + %d", $argument1, $argument2);
                     break;
                 case '-':
-                    line("Question: %d - %d", $random1 = generateRandom(), $random2 = generateRandom());
+                    line("Question: %d - %d", $argument1, $argument2);
                     break;
                 case '*':
-                    line("Question: %d * %d", $random1 = generateRandom(), $random2 = generateRandom());
+                    line("Question: %d * %d", $argument1, $argument2);
                     break;
             }
             break;
@@ -60,6 +59,20 @@ function getUserAnswer(): string
 {
     $userAnswer = prompt('Your answer');
     return $userAnswer;
+}
+function calculate($expression, $argument1, $argument2): int
+{
+    switch ($expression) {
+        case '+':
+            $correctAnswer = $argument1 + $argument2;
+            return $correctAnswer;
+        case '-':
+            $correctAnswer = $argument1 - $argument2;
+            return $correctAnswer;
+        case '*':
+            $correctAnswer = $argument1 * $argument2;
+            return $correctAnswer;
+    }
 }
 function isEven(int $random): string
 {
@@ -72,12 +85,19 @@ function compareAnswers($game, $name): int
         switch ($game) {
             case 'even':
                 $random = generateRandom();
-                showQuestion($game);
+                showQuestion($game, $random);
                 $correctAnswer = isEven($random);
+                break;
+            case 'calc':
+                $expression = generateExpression();
+                $argument1 = generateRandom();
+                $argument2 = generateRandom();
+                showQuestion($game, 0, $expression, $argument1, $argument2);
+                $correctAnswer = calculate($expression, $argument1, $argument2);
                 break;
         }
         $userAnswer = getUserAnswer();
-        if ($userAnswer !== $correctAnswer) {
+        if ($userAnswer != $correctAnswer) {
                 line(
                     "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
                     $userAnswer,
