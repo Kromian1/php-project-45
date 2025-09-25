@@ -23,6 +23,9 @@ function showDescriptionGame($game): void
         case 'calc':
             line('What is the result of the expression?');
             break;
+        case 'gcd':
+            line('Find the greatest common divisor of given numbers.');
+            break;
         default:
             line(UNKNOWN_GAME);
             break;
@@ -59,6 +62,9 @@ function showQuestion(string $game, int $random = 0, string $expression = '', in
                     break;
             }
             break;
+        case 'gcd':
+            line('Question: %d %d', $argument1, $argument2);
+            break;
         default:
             line(UNKNOWN_GAME);
             break;
@@ -86,6 +92,15 @@ function isEven(int $random): string
 {
     return $random % 2 == 0 ? 'yes' : 'no';
 }
+function getNOD(int $argument1, int $argument2): int
+{
+    while ($argument2 !== 0) {
+            $tempArg = $argument1;
+            $argument1 = $argument2;
+            $argument2 = $tempArg % $argument2;
+    }
+        return $argument1;
+}
 function compareAnswers($game, $name): int
 {
     $countCorrectAnswer = 0;
@@ -102,6 +117,12 @@ function compareAnswers($game, $name): int
                 $argument2 = generateRandom();
                 showQuestion($game, 0, $expression, $argument1, $argument2);
                 $correctAnswer = calculate($expression, $argument1, $argument2);
+                break;
+            case 'gcd':
+                $argument1 = generateRandom();
+                $argument2 = generateRandom();
+                showQuestion($game, 0, '', $argument1, $argument2);
+                $correctAnswer = getNOD($argument1, $argument2);
                 break;
             default:
                 line(UNKNOWN_GAME);
