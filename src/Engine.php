@@ -29,6 +29,9 @@ function showDescriptionGame($game): void
         case 'progression':
             line('What number is missing in the progression?');
             break;
+        case 'prime':
+            line('Answer "yes" if given number is prime. Otherwise answer "no".');
+            break;
         default:
             line(UNKNOWN_GAME);
             break;
@@ -76,6 +79,9 @@ function showQuestion(
             break;
         case 'progression':
             line('Question: %s', $hiddenProgressionStr);
+            break;
+        case 'prime':
+            line('Question: %d', $random);
             break;
         default:
             line(UNKNOWN_GAME);
@@ -142,6 +148,21 @@ function getHiddenProgression(array $progression, int $hiddenNumber): array
     $progression[$hiddenNumber] = '..';
     return $progression;
 }
+function isPrime(int $random): string
+{
+    if ($random < 2 || $random % 2 === 0) {
+        return 'no';
+    } elseif ($random === 2) {
+        return 'yes';
+    }
+    $sqrt = (int)sqrt($random);
+    for ($i = 3; $i <= $sqrt; $i += 2) {
+        if ($random % $i === 0) {
+            return 'no';
+        }
+    }
+    return 'yes';
+}
 function compareAnswers($game, $name): int
 {
     $countCorrectAnswer = 0;
@@ -176,7 +197,12 @@ function compareAnswers($game, $name): int
                 showQuestion($game, 0, '', 0, 0, $hiddenProgressionStr);
                 $correctAnswer = getAnswerProgression($progression, $hiddenNumber);
                 break;
-            default:
+            case 'prime':
+                $random = generateRandom();
+                showQuestion($game, $random, '', 0, 0, '');
+                $correctAnswer = isPrime($random);
+                break;
+                default:
                 line(UNKNOWN_GAME);
                 break;
         }
