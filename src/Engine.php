@@ -26,6 +26,9 @@ function showDescriptionGame($game): void
         case 'gcd':
             line('Find the greatest common divisor of given numbers.');
             break;
+        case 'progression':
+            line('What number is missing in the progression?');
+            break;
         default:
             line(UNKNOWN_GAME);
             break;
@@ -40,8 +43,14 @@ function generateExpression(): string
     $operator = ['+', '-', '*'];
     return $operator[array_rand($operator)];
 }
-function showQuestion(string $game, int $random = 0, string $expression = '', int $argument1 = 0, int $argument2 = 0)
-{
+function showQuestion(
+    string $game,
+    int $random = 0,
+    string $expression = '',
+    int $argument1 = 0,
+    int $argument2 = 0,
+    string $hiddenProgressionStr = ''
+) {
     switch ($game) {
         case 'even':
             line("Question: %d", $random);
@@ -64,6 +73,9 @@ function showQuestion(string $game, int $random = 0, string $expression = '', in
             break;
         case 'gcd':
             line('Question: %d %d', $argument1, $argument2);
+            break;
+        case 'progression':
+            line('Question: %s', $hiddenProgressionStr);
             break;
         default:
             line(UNKNOWN_GAME);
@@ -101,6 +113,35 @@ function getNOD(int $argument1, int $argument2): int
     }
         return $argument1;
 }
+function getRandomLengthProgression(): int
+{
+        return random_int(5, 10);
+}
+function getRandomDifferenceProgression(): int
+{
+    return random_int(1, 10);
+}
+function getRandomHiddenNumberProgression($length): int
+{
+    return random_int(0, $length - 1);
+}
+function getProgression(int $length, int $difference, int $firstNumber): array
+{
+    $progression = [];
+    for ($i = 0; $i < $length; $i++) {
+        $progression[] = $firstNumber + $i * $difference;
+    }
+    return $progression;
+}
+function getAnswerProgression(array $progression, int $hiddenNumber): int
+{
+    return $progression[$hiddenNumber];
+}
+function getHiddenProgression(array $progression, int $hiddenNumber): array
+{
+    $progression[$hiddenNumber] = '..';
+    return $progression;
+}
 function compareAnswers($game, $name): int
 {
     $countCorrectAnswer = 0;
@@ -108,21 +149,32 @@ function compareAnswers($game, $name): int
         switch ($game) {
             case 'even':
                 $random = generateRandom();
-                showQuestion($game, $random);
+                showQuestion($game, $random, '', 0, 0, '');
                 $correctAnswer = isEven($random);
                 break;
             case 'calc':
                 $expression = generateExpression();
                 $argument1 = generateRandom();
                 $argument2 = generateRandom();
-                showQuestion($game, 0, $expression, $argument1, $argument2);
+                showQuestion($game, 0, $expression, $argument1, $argument2, '');
                 $correctAnswer = calculate($expression, $argument1, $argument2);
                 break;
             case 'gcd':
                 $argument1 = generateRandom();
                 $argument2 = generateRandom();
-                showQuestion($game, 0, '', $argument1, $argument2);
+                showQuestion($game, 0, '', $argument1, $argument2, '');
                 $correctAnswer = getNOD($argument1, $argument2);
+                break;
+            case 'progression':
+                $length = getRandomLengthProgression();
+                $difference = getRandomDifferenceProgression();
+                $firstNumber = generateRandom();
+                $progression = getProgression($length, $difference, $firstNumber);
+                $hiddenNumber = getRandomHiddenNumberProgression($length);
+                $hiddenProgression = getHiddenProgression($progression, $hiddenNumber);
+                $hiddenProgressionStr = implode(' ', $hiddenProgression);
+                showQuestion($game, 0, '', 0, 0, $hiddenProgressionStr);
+                $correctAnswer = getAnswerProgression($progression, $hiddenNumber);
                 break;
             default:
                 line(UNKNOWN_GAME);
