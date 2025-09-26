@@ -18,3 +18,5 @@ Asciinema game-calc: https://asciinema.org/a/5UReAlDy3kAVsV2xKYYxgk5sE
 Asciinema game-gcd: https://asciinema.org/a/vRpXBcn4DlrZvvNkECB5FKdeC
 
 Asciinema game-progression: https://asciinema.org/a/siSPvVCGaMzJoNsLuwXEL4Cjd
+
+Asciinema game-prime: https://asciinema.org/a/Tu3k9dyN6oHV6k04cSVUTEf4F
