@@ -202,7 +202,7 @@ function compareAnswers($game, $name): int
                 showQuestion($game, $random, '', 0, 0, '');
                 $correctAnswer = isPrime($random);
                 break;
-                default:
+            default:
                 line(UNKNOWN_GAME);
                 break;
         }
