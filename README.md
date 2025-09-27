@@ -72,11 +72,11 @@ make brain-progression  # Поиск пропущенного числа в пр
 
 └── .gitignore
 
-### Требования:
+## Требования:
 - PHP 8.0+
 - Composer
 
-### Пример сессии игры (Asciinema):
+## Пример сессии игры (Asciinema):
 
 **Brain Even**: https://asciinema.org/a/NlLBXyOl7idgoTrTIYKJRDlIf
 
