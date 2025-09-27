@@ -178,13 +178,13 @@ function compareAnswers(string $game, string $name): int
                 $argument1 = generateRandom();
                 $argument2 = generateRandom();
                 showQuestion($game, 0, $expression, $argument1, $argument2, '');
-                $correctAnswer = calculate($expression, $argument1, $argument2);
+                $correctAnswer = (string)calculate($expression, $argument1, $argument2);
                 break;
             case 'gcd':
                 $argument1 = generateRandom();
                 $argument2 = generateRandom();
                 showQuestion($game, 0, '', $argument1, $argument2, '');
-                $correctAnswer = getNOD($argument1, $argument2);
+                $correctAnswer = (string)getNOD($argument1, $argument2);
                 break;
             case 'progression':
                 $length = getRandomLengthProgression();
@@ -195,7 +195,7 @@ function compareAnswers(string $game, string $name): int
                 $hiddenProgression = getHiddenProgression($progression, $hiddenNumber);
                 $hiddenProgressionStr = implode(' ', $hiddenProgression);
                 showQuestion($game, 0, '', 0, 0, $hiddenProgressionStr);
-                $correctAnswer = getAnswerProgression($progression, $hiddenNumber);
+                $correctAnswer = (string)getAnswerProgression($progression, $hiddenNumber);
                 break;
             case 'prime':
                 $random = generateRandom();
@@ -207,7 +207,7 @@ function compareAnswers(string $game, string $name): int
                 break;
         }
         $userAnswer = getUserAnswer();
-        if ($userAnswer != $correctAnswer) {
+        if ($userAnswer !== $correctAnswer) {
                 line(
                     "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
                     $userAnswer,
