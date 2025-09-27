@@ -11,7 +11,7 @@ use function BrainGames\brainGcd\brainGcdGame;
 use function BrainGames\brainPrime\brainPrimeGame;
 use function BrainGames\brainProgression\brainProgressionGame;
 
-function isInteractive(): bool
+/*function isInteractive(): bool
 {
     // Проверяем, подключен ли STDIN к терминалу
     if (function_exists('posix_isatty')) {
@@ -24,7 +24,8 @@ function isInteractive(): bool
     // Если ничего не доступно, предполагаем интерактивный режим
     return true;
 }
-function startGames()
+*/
+function startGames(): void
 {
     line("Greetings, stranger!
 The following games are currently available:
@@ -34,10 +35,10 @@ The following games are currently available:
     4. Brain Prime;
     5. Brain Progression.");
         // Для тестов - если скрипт запущен неинтерактивно, просто завершаемся
-    if (!isInteractive()) {
+/*    // if (!isInteractive()) {
         line("Running in non-interactive mode. Goodbye!");
         return;
-    }
+    }*/
     $numberOfGame = prompt('Choose the number of the game you would like to play');
     switch ($numberOfGame) {
         case '1':
