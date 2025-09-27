@@ -42,5 +42,8 @@ function startGames()
             line('You choose Brain Progression.');
             brainProgressionGame($name);
             break;
+        default:
+            line("Unknown game number. Goodbye!");
+            exit(0);
     }
 }
