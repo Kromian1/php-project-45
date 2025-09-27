@@ -11,6 +11,19 @@ use function BrainGames\brainGcd\brainGcdGame;
 use function BrainGames\brainPrime\brainPrimeGame;
 use function BrainGames\brainProgression\brainProgressionGame;
 
+function isInteractive(): bool
+{
+    // Проверяем, подключен ли STDIN к терминалу
+    if (function_exists('posix_isatty')) {
+        return posix_isatty(STDIN);
+    }
+    // Для Windows или если posix недоступен
+    if (function_exists('stream_isatty')) {
+        return stream_isatty(STDIN);
+    }
+    // Если ничего не доступно, предполагаем интерактивный режим
+    return true;
+}
 function startGames()
 {
     $name = welcomeUser();
