@@ -46,4 +46,5 @@ function startGames()
             line("Unknown game number. Goodbye!");
             exit(0);
     }
+    exit(0);
 }
