@@ -167,6 +167,7 @@ function compareAnswers(string $game, string $name): int
 {
     $countCorrectAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
+        $correctAnswer = '';
         switch ($game) {
             case 'even':
                 $random = generateRandom();
