@@ -10,13 +10,59 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Kromian1_php-project-45&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Kromian1_php-project-45)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Kromian1_php-project-45&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Kromian1_php-project-45)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Kromian1_php-project-45&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Kromian1_php-project-45)
+# Brain Games
 
-Asciinema game-even: https://asciinema.org/a/NlLBXyOl7idgoTrTIYKJRDlIf
+Набор из 5 математических игр для развития логического мышления, написанных на PHP.
 
-Asciinema game-calc: https://asciinema.org/a/5UReAlDy3kAVsV2xKYYxgk5sE
+## Доступные игры:
 
-Asciinema game-gcd: https://asciinema.org/a/vRpXBcn4DlrZvvNkECB5FKdeC
+1. **Brain Even** - Определение четности числа
+2. **Brain Calc** - Арифметические выражения
+3. **Brain GCD** - Наибольший общий делитель
+4. **Brain Prime** - Проверка числа на простоту
+5. **Brain Progression** - Поиск пропущенного числа в прогрессии
 
-Asciinema game-progression: https://asciinema.org/a/siSPvVCGaMzJoNsLuwXEL4Cjd
+##  Установка:
 
-Asciinema game-prime: https://asciinema.org/a/Tu3k9dyN6oHV6k04cSVUTEf4F
+git clone https://github.com/Kromian1/php-project-45.git
+cd php-project-45
+make install
+Скрипты в bin должны быть исполняемыми (chmod +x bin/*)
+
+## Запуск:
+
+Меню выбора игры:
+make brain-launcher
+
+Запуск конкретной игры:
+
+make brain-even    # Определение четности числа
+make brain-calc    # Арифметические выражения
+make brain-gcd     # Наибольший общий делитель
+make brain-prime   # Проверка числа на простоту
+make brain-progression  # Поиск пропущенного числа в прогрессии
+
+## Структура репозитория:
+
+.
+├── bin/                  # скрипты запуска 
+├── src/                  # исходный код логики игр
+├── .github/              # CI / workflow конфигурации
+├── .vscode/              # настройки для VS Code (если есть)
+├── composer.json
+├── composer.lock
+├── Makefile              # команды сборки и запуска
+├── README.md             # этот файл
+└── .gitignore
+
+### Требования:
+- PHP 8.0+
+- Composer
+
+Пример сессии игры (Asciinema):
+
+**Brain Even**: https://asciinema.org/a/NlLBXyOl7idgoTrTIYKJRDlIf
+**Brain Calc**: https://asciinema.org/a/5UReAlDy3kAVsV2xKYYxgk5sE
+**Brain GCD**: https://asciinema.org/a/vRpXBcn4DlrZvvNkECB5FKdeC
+**Brain Prime**: https://asciinema.org/a/Tu3k9dyN6oHV6k04cSVUTEf4F
+**Brain Progression**: https://asciinema.org/a/siSPvVCGaMzJoNsLuwXEL4Cjd
