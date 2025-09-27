@@ -4,7 +4,6 @@ namespace BrainGames\launcher;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Engine\welcomeUser;
 use function BrainGames\brainCalc\brainCalcGame;
 use function BrainGames\brainEven\brainEvenGame;
 use function BrainGames\brainGcd\brainGcdGame;
