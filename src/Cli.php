@@ -20,6 +20,11 @@ function startGames()
     3. Brain GCD;
     4. Brain Prime;
     5. Brain Progression.");
+        // Для тестов - если скрипт запущен неинтерактивно, просто завершаемся
+    if (!isInteractive()) {
+        line("Running in non-interactive mode. Goodbye!");
+        return;
+    }
     $numberOfGame = prompt('Choose the number of the game you would like to play');
     switch ($numberOfGame) {
         case '1':
@@ -44,7 +49,6 @@ function startGames()
             break;
         default:
             line("Unknown game number. Goodbye!");
-            exit(0);
+            break;
     }
-    exit(0);
 }
