@@ -25,44 +25,64 @@
 ##  Установка:
 
 git clone https://github.com/Kromian1/php-project-45.git
+
 cd php-project-45
+
 make install
+
 Скрипты в bin должны быть исполняемыми (chmod +x bin/*)
 
 ## Запуск:
 
 Меню выбора игры:
+
 make brain-launcher
 
 Запуск конкретной игры:
 
 make brain-even    # Определение четности числа
+
 make brain-calc    # Арифметические выражения
+
 make brain-gcd     # Наибольший общий делитель
+
 make brain-prime   # Проверка числа на простоту
+
 make brain-progression  # Поиск пропущенного числа в прогрессии
 
 ## Структура репозитория:
 
 .
 ├── bin/                  # скрипты запуска 
+
 ├── src/                  # исходный код логики игр
+
 ├── .github/              # CI / workflow конфигурации
+
 ├── .vscode/              # настройки для VS Code (если есть)
+
 ├── composer.json
+
 ├── composer.lock
+
 ├── Makefile              # команды сборки и запуска
+
 ├── README.md             # этот файл
+
 └── .gitignore
 
 ### Требования:
 - PHP 8.0+
 - Composer
 
-Пример сессии игры (Asciinema):
+### Пример сессии игры (Asciinema):
 
 **Brain Even**: https://asciinema.org/a/NlLBXyOl7idgoTrTIYKJRDlIf
+
 **Brain Calc**: https://asciinema.org/a/5UReAlDy3kAVsV2xKYYxgk5sE
+
 **Brain GCD**: https://asciinema.org/a/vRpXBcn4DlrZvvNkECB5FKdeC
+
 **Brain Prime**: https://asciinema.org/a/Tu3k9dyN6oHV6k04cSVUTEf4F
+
 **Brain Progression**: https://asciinema.org/a/siSPvVCGaMzJoNsLuwXEL4Cjd
