@@ -166,7 +166,8 @@ function isPrime(int $random): string
 function compareAnswers(string $game, string $name): int
 {
     $countCorrectAnswer = 0;
-    for ($i = 0; $i < 3; $i++) {
+    $countRoundGames = 3;
+    for ($i = 0; $i < $countRoundGames; $i++) {
         $correctAnswer = '';
         switch ($game) {
             case 'even':

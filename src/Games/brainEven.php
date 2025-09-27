@@ -4,15 +4,13 @@ namespace BrainGames\brainEven;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Engine\welcomeUser;
 use function BrainGames\Engine\showDescriptionGame;
 use function BrainGames\Engine\compareAnswers;
 use function BrainGames\Engine\endOfGame;
 
-function brainEvenGame(): void
+function brainEvenGame($name): void
 {
     $game = 'even';
-    $name = welcomeUser();
     showDescriptionGame($game);
     $countCorrectAnswer = compareAnswers($game, $name);
     endOfGame($name, $countCorrectAnswer);
