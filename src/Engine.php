@@ -14,7 +14,7 @@ function welcomeUser(): string
     line("Hello, %s!", $name);
     return $name;
 }
-function showDescriptionGame($game): void
+function showDescriptionGame(string $game): void
 {
     switch ($game) {
         case 'even':
@@ -53,7 +53,7 @@ function showQuestion(
     int $argument1 = 0,
     int $argument2 = 0,
     string $hiddenProgressionStr = ''
-) {
+): void {
     switch ($game) {
         case 'even':
             line("Question: %d", $random);
@@ -92,7 +92,7 @@ function getUserAnswer(): string
 {
     return prompt('Your answer');
 }
-function calculate($expression, $argument1, $argument2): int
+function calculate(string $expression, int $argument1, int $argument2): int
 {
     switch ($expression) {
         case '+':
@@ -127,7 +127,7 @@ function getRandomDifferenceProgression(): int
 {
     return random_int(1, 10);
 }
-function getRandomHiddenNumberProgression($length): int
+function getRandomHiddenNumberProgression(string $length): int
 {
     return random_int(0, $length - 1);
 }
@@ -163,7 +163,7 @@ function isPrime(int $random): string
     }
     return 'yes';
 }
-function compareAnswers($game, $name): int
+function compareAnswers(string $game, string $name): int
 {
     $countCorrectAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
@@ -222,7 +222,7 @@ function compareAnswers($game, $name): int
     }
     return $countCorrectAnswer;
 }
-function endOfGame($name, $countCorrectAnswer): void
+function endOfGame(string $name, int $countCorrectAnswer): void
 {
     if ($countCorrectAnswer === 3) {
         line("Congratulations, %s!", $name);
