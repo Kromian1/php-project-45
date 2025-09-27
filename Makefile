@@ -1,5 +1,7 @@
 install:
 	composer install
+brain-launcher:
+	./bin/brain-launcher
 brain-games:
 	./bin/brain-games
 brain-calc:
