@@ -9,7 +9,7 @@ use function BrainGames\Engine\showDescriptionGame;
 use function BrainGames\Engine\compareAnswers;
 use function BrainGames\Engine\endOfGame;
 
-function brainEvenGame()
+function brainEvenGame(): void
 {
     $game = 'even';
     $name = welcomeUser();

@@ -103,12 +103,12 @@ function calculate(string $expression, int $argument1, int $argument2): int
             return $argument1 * $argument2;
         default:
             line('Unknown expression');
-            break;
+            return 0;
     }
 }
 function isEven(int $random): string
 {
-    return $random % 2 == 0 ? 'yes' : 'no';
+    return $random % 2 === 0 ? 'yes' : 'no';
 }
 function getNOD(int $argument1, int $argument2): int
 {
@@ -127,7 +127,7 @@ function getRandomDifferenceProgression(): int
 {
     return random_int(1, 10);
 }
-function getRandomHiddenNumberProgression(string $length): int
+function getRandomHiddenNumberProgression(int $length): int
 {
     return random_int(0, $length - 1);
 }

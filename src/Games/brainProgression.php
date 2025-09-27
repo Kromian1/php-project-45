@@ -9,7 +9,7 @@ use function BrainGames\Engine\showDescriptionGame;
 use function BrainGames\Engine\compareAnswers;
 use function BrainGames\Engine\endOfGame;
 
-function brainProgressionGame()
+function brainProgressionGame(): void
 {
     $game = 'progression';
     $name = welcomeUser();
