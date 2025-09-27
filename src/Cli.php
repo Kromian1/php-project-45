@@ -26,8 +26,8 @@ function isInteractive(): bool
 }
 function startGames()
 {
-    $name = welcomeUser();
-    line("The following games are currently available:
+    line("Greetings, stranger!
+The following games are currently available:
     1. Brain Even;
     2. Brain Calc;
     3. Brain GCD;
@@ -42,23 +42,23 @@ function startGames()
     switch ($numberOfGame) {
         case '1':
             line('You choose Brain Even.');
-            brainEvenGame($name);
+            brainEvenGame();
             break;
         case '2':
             line('You choose Brain Calc.');
-            brainCalcGame($name);
+            brainCalcGame();
             break;
         case '3':
             line('You choose Brain GCD.');
-            brainGcdGame($name);
+            brainGcdGame();
             break;
         case '4':
             line('You choose Brain Prime.');
-            brainPrimeGame($name);
+            brainPrimeGame();
             break;
         case '5':
             line('You choose Brain Progression.');
-            brainProgressionGame($name);
+            brainProgressionGame();
             break;
         default:
             line("Unknown game number. Goodbye!");
