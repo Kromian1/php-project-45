@@ -15,13 +15,13 @@
 	]
     },
     "bin": [
-	"bin/games",
-    "bin/calc",
-    "bin/even",
-    "bin/gcd",
-    "bin/prime",
-    "bin/progression",
-    "bin/launcher"
+	"bin/brain-games",
+    "bin/brain-calc",
+    "bin/brain-even",
+    "bin/brain-gcd",
+    "bin/brain-prime",
+    "bin/brain-progression",
+    "bin/brain-launcher"
     ],
     "authors": [
         {

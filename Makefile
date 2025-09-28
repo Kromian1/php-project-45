@@ -1,15 +1,15 @@
 install:
 	composer install
 launcher:
-	./bin/launcher
+	./bin/brain-launcher
 games:
-	./bin/games
+	./bin/brain-games
 calc:
-	./bin/calc
+	./bin/brain-calc
 even:
-	./bin/even
+	./bin/brain-even
 gcd:
-	./bin/gcd
+	./bin/brain-gcd
 prime:
 	./bin/prime
 progression:
