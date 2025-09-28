@@ -3,9 +3,6 @@
     "description": "Brain Games - collection of math games",
     "license": "MIT",
     "autoload": {
-        "psr-4": {
-            "Hexlet\\Code\\": "src/"
-        },
 	"files": [
 	    "src/Cli.php",
         "src/Engine.php",
@@ -39,3 +36,4 @@
         "squizlabs/php_codesniffer": "^4.0"
     }
 }
+ 
