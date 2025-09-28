@@ -6,22 +6,22 @@
 	"files": [
 	    "src/Cli.php",
         "src/Engine.php",
-        "src/Games/brainEven.php",
-        "src/Games/brainCalc.php",
-        "src/Games/brainGcd.php",
-        "src/Games/brainProgression.php",
-        "src/Games/brainPrime.php",
+        "src/Games/Even.php",
+        "src/Games/Calc.php",
+        "src/Games/Gcd.php",
+        "src/Games/Progression.php",
+        "src/Games/Prime.php",
         "src/Games/launcher.php"
 	]
     },
     "bin": [
-	"bin/brain-games",
-    "bin/brain-calc",
-    "bin/brain-even",
-    "bin/brain-gcd",
-    "bin/brain-prime",
-    "bin/brain-progression",
-    "bin/brain-launcher"
+	"bin/games",
+    "bin/calc",
+    "bin/even",
+    "bin/gcd",
+    "bin/prime",
+    "bin/progression",
+    "bin/launcher"
     ],
     "authors": [
         {

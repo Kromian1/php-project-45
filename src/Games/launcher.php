@@ -4,11 +4,11 @@ namespace BrainGames\launcher;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\brainCalc\brainCalcGame;
-use function BrainGames\brainEven\brainEvenGame;
-use function BrainGames\brainGcd\brainGcdGame;
-use function BrainGames\brainPrime\brainPrimeGame;
-use function BrainGames\brainProgression\brainProgressionGame;
+use function BrainGames\Calc\brainCalcGame;
+use function BrainGames\Even\brainEvenGame;
+use function BrainGames\Gcd\brainGcdGame;
+use function BrainGames\Prime\brainPrimeGame;
+use function BrainGames\Progression\brainProgressionGame;
 
 function startGames(): void
 {

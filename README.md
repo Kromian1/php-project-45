@@ -36,19 +36,19 @@ make install
 
 **Меню выбора игры:**
 
-make brain-launcher
+make launcher
 
 **Запуск конкретной игры:**
 
-make brain-even    # Определение четности числа
+make even    # Определение четности числа
 
-make brain-calc    # Арифметические выражения
+make calc    # Арифметические выражения
 
-make brain-gcd     # Наибольший общий делитель
+make gcd     # Наибольший общий делитель
 
-make brain-prime   # Проверка числа на простоту
+make prime   # Проверка числа на простоту
 
-make brain-progression  # Поиск пропущенного числа в прогрессии
+make progression  # Поиск пропущенного числа в прогрессии
 
 ## Структура репозитория:
 
