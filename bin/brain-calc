@@ -4,6 +4,9 @@
 
 $autoloadPath1 = __DIR__ . '/../vendor/autoload.php';
 $autoloadPath2 = __DIR__ . '/../../autoload.php';
+
+use function BrainGames\Calc\brainCalcGame;
+
 if (file_exists($autoloadPath1)) {
     require_once $autoloadPath1;
 } elseif (file_exists($autoloadPath2)) {
@@ -12,7 +15,5 @@ if (file_exists($autoloadPath1)) {
     fwrite(STDERR, "Autoloader not found. Did you install dependencies?\n");
     exit(1);
 }
-
-use function BrainGames\Calc\brainCalcGame;
 
 brainCalcGame();

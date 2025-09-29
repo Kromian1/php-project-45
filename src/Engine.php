@@ -10,8 +10,12 @@ function runRounds(string $description, array $rounds): void
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
+
     line($description);
+
+
     $countCorrectAnswer = 0;
+
     foreach ($rounds as [$question, $correctAnswer]) {
         line("Question: {$question}");
         $userAnswer = prompt('Your answer');
@@ -22,12 +26,14 @@ function runRounds(string $description, array $rounds): void
                 $correctAnswer,
                 $name
             );
-            break;
+            return;
         } else {
             line('Correct!');
             $countCorrectAnswer++;
         }
     }
+
+
     if ($countCorrectAnswer === 3) {
         line("Congratulations, %s!", $name);
     }
