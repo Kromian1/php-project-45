@@ -32,6 +32,6 @@ function getCorrectAnswer(string $operator, int $operand1, int $operand2): int
         case '*':
             return $operand1 * $operand2;
         default:
-            throw new Exception("The operator {$operator} is undefined\n");
+            throw new \Exception("The operator {$operator} is undefined\n");
     }
 }
