@@ -2,8 +2,6 @@
 
 namespace BrainGames\Progression;
 
-use function cli\line;
-use function cli\prompt;
 use function BrainGames\Engine\runRounds;
 
 const DESCRIPTION = 'What number is missing in the progression?';

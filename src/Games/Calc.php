@@ -2,8 +2,6 @@
 
 namespace BrainGames\Calc;
 
-use function cli\line;
-use function cli\prompt;
 use function BrainGames\Engine\runRounds;
 
 const DESCRIPTION = 'What is the result of the expression?';
@@ -15,23 +13,26 @@ function brainCalcGame(): void
     for ($i = 0; $i < ROUNDS; $i++) {
         $operator = ['+', '-', '*'];
         $operator = $operator[array_rand($operator)];
-        $argument1 = random_int(1, 100);
-        $argument2 = random_int(1, 100);
-        $question = "{$argument1} {$operator} {$argument2}";
-        switch ($operator) {
-            case '+':
-                $correctAnswer = $argument1 + $argument2;
-                break;
-            case '-':
-                $correctAnswer = $argument1 - $argument2;
-                break;
-            case '*':
-                $correctAnswer = $argument1 * $argument2;
-                break;
-            default:
-                exit;
-        }
+        $operand1 = random_int(1, 100);
+        $operand2 = random_int(1, 100);
+        $question = "{$operand1} {$operator} {$operand2}";
+        $correctAnswer = getCorrectAnswer($operator, $operand1, $operand2);
         $rounds[] = [$question, $correctAnswer];
     }
     runRounds(DESCRIPTION, $rounds);
+}
+
+function getCorrectAnswer(string $operator, int $operand1, int $operand2): int
+{
+    switch ($operator) {
+        case '+':
+            return $operand1 + $operand2;
+        case '-':
+            return $operand1 - $operand2;
+        case '*':
+            return $operand1 * $operand2;
+        default:
+            fwrite(STDERR, "The operator is undefined\n");
+            exit(1);
+    }
 }

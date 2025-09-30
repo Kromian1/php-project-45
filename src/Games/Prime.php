@@ -2,8 +2,6 @@
 
 namespace BrainGames\Prime;
 
-use function cli\line;
-use function cli\prompt;
 use function BrainGames\Engine\runRounds;
 
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -19,6 +17,7 @@ function brainPrimeGame(): void
     }
     runRounds(DESCRIPTION, $rounds);
 }
+
 function isPrime(int $question): bool
 {
     if ($question < 2 || $question % 2 === 0) {

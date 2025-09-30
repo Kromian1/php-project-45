@@ -13,9 +13,6 @@ function runRounds(string $description, array $rounds): void
 
     line($description);
 
-
-    $countCorrectAnswer = 0;
-
     foreach ($rounds as [$question, $correctAnswer]) {
         line("Question: {$question}");
         $userAnswer = prompt('Your answer');
@@ -27,14 +24,9 @@ function runRounds(string $description, array $rounds): void
                 $name
             );
             return;
-        } else {
-            line('Correct!');
-            $countCorrectAnswer++;
         }
+        line('Correct!');
     }
 
-
-    if ($countCorrectAnswer === 3) {
-        line("Congratulations, %s!", $name);
-    }
+    line("Congratulations, %s!", $name);
 }
