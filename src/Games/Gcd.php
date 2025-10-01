@@ -7,7 +7,7 @@ use function BrainGames\Engine\runRounds;
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 const ROUNDS = 3;
 
-function brainGcdGame(): void
+function runGcd(): void
 {
     $rounds = [];
     for ($i = 0; $i < ROUNDS; $i++) {

@@ -7,7 +7,7 @@ use function BrainGames\Engine\runRounds;
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const ROUNDS = 3;
 
-function brainPrimeGame(): void
+function runPrime(): void
 {
     $rounds = [];
     for ($i = 0; $i < ROUNDS; $i++) {

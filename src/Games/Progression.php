@@ -7,7 +7,7 @@ use function BrainGames\Engine\runRounds;
 const DESCRIPTION = 'What number is missing in the progression?';
 const ROUNDS = 3;
 
-function brainProgressionGame(): void
+function runProgression(): void
 {
     $rounds = [];
     for ($i = 0; $i < ROUNDS; $i++) {

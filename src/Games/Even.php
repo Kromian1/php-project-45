@@ -7,7 +7,7 @@ use function BrainGames\Engine\runRounds;
 const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 const ROUNDS = 3;
 
-function brainEvenGame(): void
+function runEven(): void
 {
     $rounds = [];
     for ($i = 0; $i < ROUNDS; $i++) {
@@ -20,5 +20,5 @@ function brainEvenGame(): void
 
 function isEven(int $question): bool
 {
-    return $question % 2 === 0 ? true : false;
+    return $question % 2 === 0;
 }

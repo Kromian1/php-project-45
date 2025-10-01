@@ -4,13 +4,13 @@ namespace BrainGames\Launcher;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Calc\brainCalcGame;
-use function BrainGames\Even\brainEvenGame;
-use function BrainGames\Gcd\brainGcdGame;
-use function BrainGames\Prime\brainPrimeGame;
-use function BrainGames\Progression\brainProgressionGame;
+use function BrainGames\Calc\runCalc;
+use function BrainGames\Even\runEven;
+use function BrainGames\Gcd\runGcd;
+use function BrainGames\Prime\runPrime;
+use function BrainGames\Progression\runProgression;
 
-function startGames(): void
+function runLauncher(): void
 {
     line('Greetings, stranger!');
     while (true) {
@@ -29,26 +29,26 @@ function startGames(): void
                 exit(0);
             case '1':
                 line('You choose Brain Even.');
-                brainEvenGame();
+                runEven();
                 break;
             case '2':
                 line('You choose Brain Calc.');
-                brainCalcGame();
+                runCalc();
                 break;
             case '3':
                 line('You choose Brain GCD.');
-                brainGcdGame();
+                runGcd();
                 break;
             case '4':
                 line('You choose Brain Prime.');
-                brainPrimeGame();
+                runPrime();
                 break;
             case '5':
                 line('You choose Brain Progression.');
-                brainProgressionGame();
+                runProgression();
                 break;
             default:
-                line("Unknown game number. Goodbye!");
+                line("Unknown game number. Choose another game!");
                 break;
         }
         line("\n");

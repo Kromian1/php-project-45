@@ -11,9 +11,9 @@ even:
 gcd:
 	./bin/brain-gcd
 prime:
-	./bin/prime
+	./bin/brain-prime
 progression:
-	./bin/progression
+	./bin/brain-progression
 validate:
 	composer validate
 lint:

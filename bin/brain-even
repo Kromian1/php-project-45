@@ -1,11 +1,10 @@
 #!/usr/bin/env php
-
 <?php
+
+use function BrainGames\Even\runEven;
 
 $autoloadPath1 = __DIR__ . '/../vendor/autoload.php';
 $autoloadPath2 = __DIR__ . '/../../autoload.php';
-
-use function BrainGames\Even\brainEvenGame;
 
 if (file_exists($autoloadPath1)) {
     require_once $autoloadPath1;
@@ -16,4 +15,4 @@ if (file_exists($autoloadPath1)) {
     exit(1);
 }
 
-brainEvenGame();
+runEven();
