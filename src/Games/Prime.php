@@ -20,10 +20,12 @@ function runPrime(): void
 
 function isPrime(int $question): bool
 {
-    if ($question < 2 || $question % 2 === 0) {
+    if ($question < 2) {
         return false;
     } elseif ($question === 2) {
         return true;
+    } elseif ($question % 2 === 0) {
+        return false;
     }
     $sqrt = (int)sqrt($question);
     for ($i = 3; $i <= $sqrt; $i += 2) {
