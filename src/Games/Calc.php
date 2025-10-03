@@ -24,14 +24,10 @@ function runCalc(): void
 
 function calculate(string $operator, int $operand1, int $operand2): int
 {
-    switch ($operator) {
-        case '+':
-            return $operand1 + $operand2;
-        case '-':
-            return $operand1 - $operand2;
-        case '*':
-            return $operand1 * $operand2;
-        default:
-            throw new \Exception("The operator {$operator} is undefined\n");
-    }
+    return match ($operator) {
+        '+' => $operand1 + $operand2,
+        '-' => $operand1 - $operand2,
+        '*' => $operand1 * $operand2,
+        defalut => throw new \Exception("The operator {$operator} is undefined\n")
+    };
 }
