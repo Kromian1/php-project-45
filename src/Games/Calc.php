@@ -28,6 +28,6 @@ function calculate(string $operator, int $operand1, int $operand2): int
         '+' => $operand1 + $operand2,
         '-' => $operand1 - $operand2,
         '*' => $operand1 * $operand2,
-        defalut => throw new \Exception("The operator {$operator} is undefined\n")
+        default => throw new \Exception("The operator {$operator} is undefined\n")
     };
 }
