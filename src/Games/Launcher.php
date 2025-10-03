@@ -54,22 +54,3 @@ function runLauncher(): void
         line("\n");
     }
 }
-function runLauncher(): void
-{
-    line('Greetings, stranger!');
-    while (true) {
-        line("The following games are currently available:
-    1. Brain Even;
-    2. Brain Calc;
-    3. Brain GCD;
-    4. Brain Prime;
-    5. Brain Progression.
-    0. Exit.");
-
-        $numberOfGame = prompt('Choose the number of the game you would like to play');
-        line match ($numberOfGame) {
-            
-        }
-        line("\n");
-    }
-}
